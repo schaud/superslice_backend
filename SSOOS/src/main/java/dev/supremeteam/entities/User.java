@@ -14,10 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-
 @Entity
 @Table(name="usr")
 public class User {
@@ -75,20 +71,18 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@JsonIgnoreProperties({ "users" })
+
 	public UserRole getUserRole() {
-		
 		return userRole;
 	}
-	@JsonIgnoreProperties({ "users" })
+
 	public void setUserRole(UserRole userRole) {
 		this.userRole = userRole;
 	}
-	@JsonIgnoreProperties({ "pizzas","user"  })
+
 	public Set<Ticket> getTickets() {
 		return tickets;
 	}
-	@JsonIgnoreProperties({ "pizzas","user" })
 
 	public void setTickets(Set<Ticket> tickets) {
 		this.tickets = tickets;
@@ -96,8 +90,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", username=" + username + ", password=" + password +"]";
-
+		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", userRole=" + userRole.getRoleTitle()
+				+ "]";
 	}
 
 	
