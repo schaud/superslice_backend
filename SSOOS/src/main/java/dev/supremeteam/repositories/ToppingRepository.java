@@ -12,6 +12,8 @@ import dev.supremeteam.entities.Topping;
 @Component
 @Repository
 public interface ToppingRepository extends CrudRepository<Topping,Integer>{
+Topping findByToppingName(String toppingName);
+
 	public List<Topping> findByCostLessThan(float price);
 	public List<Topping> findByCostGreaterThan(float price);
 

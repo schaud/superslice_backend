@@ -13,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import dev.supremeteam.entities.Topping;
+import dev.supremeteam.entities.User;
 import dev.supremeteam.repositories.ToppingRepository;
 
 @SpringBootTest
@@ -33,6 +34,12 @@ class ToppingRepoTests {
 		Topping topping = tRepo.findById(10).get();
 		System.out.println(topping);
 		System.out.println(topping.getPizzas());
+	}
+	
+	@Test
+	void getToppingByName() {
+		Topping topping = tRepo.findByToppingName("Onions");
+		System.out.println(topping);
 	}
 	@Test
 	void getVeggieToppings() {

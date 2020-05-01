@@ -9,5 +9,5 @@ import dev.supremeteam.entities.Ticket;
 @Component
 @Repository
 public interface TicketRepository extends CrudRepository<Ticket,Integer>{
-
+	
 }
