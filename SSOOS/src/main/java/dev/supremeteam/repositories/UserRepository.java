@@ -9,7 +9,6 @@ import dev.supremeteam.entities.User;
 @Component
 @Repository
 public interface UserRepository extends CrudRepository<User,Integer>{
-	 User findByUsernameAndPassword(String username,String password);
+	public User findByUsernameAndPassword(String username,String password);
 	
-
 }
