@@ -1,14 +1,18 @@
 package dev.supremeteam.entities;
 
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +33,9 @@ public class Ticket {
 	@Column(name="note")
 	private String note;
 	
+	@OneToMany(mappedBy="ticket", fetch=FetchType.LAZY)
+	private Set<Pizza> pizzas = new HashSet<Pizza>();
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
@@ -43,6 +50,16 @@ public class Ticket {
 		this.placementTime = placementTime;
 		this.status = status;
 		this.note = note;
+		this.user = user;
+	}
+
+	public Ticket(int ticketId, Time placementTime, String status, String note, Set<Pizza> pizzas, User user) {
+		super();
+		this.ticketId = ticketId;
+		this.placementTime = placementTime;
+		this.status = status;
+		this.note = note;
+		this.pizzas = pizzas;
 		this.user = user;
 	}
 
@@ -84,6 +101,14 @@ public class Ticket {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Set<Pizza> getPizzas() {
+		return pizzas;
+	}
+
+	public void setPizzas(Set<Pizza> pizzas) {
+		this.pizzas = pizzas;
 	}
 
 	@Override

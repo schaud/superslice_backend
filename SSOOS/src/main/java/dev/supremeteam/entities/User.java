@@ -33,7 +33,7 @@ public class User {
 	@JoinColumn(name="role_id")
 	private UserRole userRole;
 	
-	@OneToMany(mappedBy = "users", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Set<Ticket> tickets = new HashSet<Ticket>();
 
 	public User() {
@@ -78,6 +78,14 @@ public class User {
 
 	public void setUserRole(UserRole userRole) {
 		this.userRole = userRole;
+	}
+
+	public Set<Ticket> getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(Set<Ticket> tickets) {
+		this.tickets = tickets;
 	}
 
 	@Override
