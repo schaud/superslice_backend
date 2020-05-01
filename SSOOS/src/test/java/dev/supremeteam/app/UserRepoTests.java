@@ -61,7 +61,7 @@ class UserRepoTests {
 	
 	@Test
 	void getUserByUsername() {
-		User user = uRepo.getUserByUsername("schaud24");
+		User user = uRepo.getUserByUsername("newuser2");
 		System.out.println(user);
 	}
 

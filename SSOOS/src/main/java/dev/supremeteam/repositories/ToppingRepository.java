@@ -9,5 +9,5 @@ import dev.supremeteam.entities.Topping;
 @Component
 @Repository
 public interface ToppingRepository extends CrudRepository<Topping,Integer>{
-
+Topping findByToppingName(String toppingName);
 }
