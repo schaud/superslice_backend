@@ -58,5 +58,11 @@ class UserRepoTests {
 		User user = uRepo.findById(1).get();
 		uRepo.delete(user);
 	}
+	
+	@Test
+	void getUserByUsername() {
+		User user = uRepo.getUserByUsername("schaud24");
+		System.out.println(user);
+	}
 
 }
