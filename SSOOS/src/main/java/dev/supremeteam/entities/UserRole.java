@@ -14,7 +14,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name="user_role")
 public class UserRole {
@@ -34,7 +33,6 @@ public class UserRole {
 		return users;
 	}
 	
-
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}

@@ -17,7 +17,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
 @Table(name="usr")
 public class User {
@@ -89,7 +88,6 @@ public class User {
 		return tickets;
 	}
 	@JsonIgnoreProperties({ "pizzas","user" })
-
 	public void setTickets(Set<Ticket> tickets) {
 		this.tickets = tickets;
 	}
@@ -97,7 +95,6 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", username=" + username + ", password=" + password +"]";
-
 	}
 
 	
