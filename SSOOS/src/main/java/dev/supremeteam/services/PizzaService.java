@@ -3,9 +3,12 @@ package dev.supremeteam.services;
 import java.util.Set;
 
 import dev.supremeteam.entities.Pizza;
+import dev.supremeteam.entities.PizzaForm;
 import dev.supremeteam.entities.Ticket;
 
 public interface PizzaService {
+	
+	void orderPizza(Ticket ticket, PizzaForm pizzaForm);
 	
 	Pizza plainPizza(Ticket ticket, String size);
 	

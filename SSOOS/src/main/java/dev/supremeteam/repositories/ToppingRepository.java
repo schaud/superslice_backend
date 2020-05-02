@@ -17,6 +17,7 @@ public interface ToppingRepository extends CrudRepository<Topping,Integer>{
 
 	public List<Topping> findByCostLessThan(float price);
 	public List<Topping> findByCostGreaterThan(float price);
+	public List<Topping> findByCostEquals(float cost);
 
 
 	Topping findByToppingName(String toppingName);

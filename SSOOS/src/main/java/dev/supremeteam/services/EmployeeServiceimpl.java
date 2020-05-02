@@ -1,12 +1,16 @@
 package dev.supremeteam.services;
 
+
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import dev.supremeteam.entities.*;
 import dev.supremeteam.repositories.*;
-
+@Component
+@Service
 public class EmployeeServiceimpl implements EmployeeService {
 	@Autowired 
 	TicketRepository tr;

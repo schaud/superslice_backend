@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import dev.supremeteam.entities.Pizza;
+import dev.supremeteam.entities.PizzaForm;
 import dev.supremeteam.entities.Ticket;
 import dev.supremeteam.entities.Topping;
 import dev.supremeteam.repositories.PizzaRepository;
@@ -23,6 +24,21 @@ public class PizzaServiceImpl implements PizzaService {
 	@Autowired
 	PizzaRepository pizzaRepo;
 
+	@Override
+	public void orderPizza(Ticket ticket, PizzaForm pizzaForm) {
+		
+		switch (pizzaForm.getType()) {
+		case "VeggiePizza": veggiePizza(ticket, pizzaForm.getSize()); break;
+		case "MeatLoversPizza": meatLoversPizza(ticket, pizzaForm.getSize()); break;
+		case "HawaiianPizza": hawaiianPizza(ticket, pizzaForm.getSize()); break;
+		case "MediterraneanPizza": mediterraneanPizza(ticket, pizzaForm.getSize()); break;
+		case "FourCheesePizza": fourCheesePizza(ticket, pizzaForm.getSize()); break;
+		case "WhitePizza": whitePizza(ticket, pizzaForm.getSize()); break;
+		case "CustomPizza": customPizza(ticket, pizzaForm.getSize(), pizzaForm.getToppingNames()); break;
+		case "PlainPizza": plainPizza(ticket, pizzaForm.getSize()); break;
+		}
+	}
+	
 	@Override
 	public Pizza veggiePizza(Ticket ticket, String size) {
 		Pizza pizza = new Pizza();
