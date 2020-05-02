@@ -11,7 +11,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import dev.supremeteam.entities.Ticket;
-import dev.supremeteam.entities.User;
 import dev.supremeteam.repositories.TicketRepository;
 import dev.supremeteam.repositories.UserRepository;
 
@@ -53,9 +52,10 @@ class TicketRepoTests {
 	}
 	
 //	@Test
-//	void getTicketByUsername() {
-//		Ticket ticket = tRepo.findByUser("raymond02");
+//	void getTicketByUser() {
+//		Ticket ticket = tRepo.TicketByUsername("raymond02");
 //		System.out.println(ticket);
+//		
 //	}
 
 }
