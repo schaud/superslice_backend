@@ -13,7 +13,7 @@ public interface UserRepository extends CrudRepository<User,Integer>{
 	 public User findByUsernameAndPassword(String username,String password);
 	
 
-	User findByUsername(String name);
+	 public User findByUsername(String name);
 	
 	
 }
