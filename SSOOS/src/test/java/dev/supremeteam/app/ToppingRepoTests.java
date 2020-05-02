@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -52,5 +54,21 @@ class ToppingRepoTests {
 		System.out.println(toppings);
 	}
 
+	void getAllMeats() {
+		List<Topping> topping = tRepo.findByCostGreaterThan(2);
+		System.out.println(topping);
+	}
+	
+	@Test
+	void getAllNonVeggies() {
+		List<Topping> topping = tRepo.findByCostEquals(2);
+		System.out.println(topping);
+	}
+	
+	@Test
+	void getAllDollarToppings() {
+		List<Topping> topping = tRepo.findByCostLessThan(2);
+		System.out.println(topping);
+	}
 
 }
