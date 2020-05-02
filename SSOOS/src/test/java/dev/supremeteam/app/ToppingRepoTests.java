@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import dev.supremeteam.entities.Topping;
+import dev.supremeteam.entities.User;
 import dev.supremeteam.repositories.ToppingRepository;
 
 @SpringBootTest
@@ -33,6 +34,12 @@ class ToppingRepoTests {
 		System.out.println(topping);
 		System.out.println(topping.getPizzas());
 	}
+	
+	@Test
+	void getToppingByName() {
+		Topping topping = tRepo.findByToppingName("Onions");
+		System.out.println(topping);
+	}
 	@Test
 	void getVeggieToppings() {
 		List<Topping> toppings = tRepo.findByCostLessThan(2);
@@ -42,6 +49,24 @@ class ToppingRepoTests {
 	void getMeatToppings() {
 		List<Topping> toppings = tRepo.findByCostGreaterThan(1);
 		System.out.println(toppings);
+	}
+
+
+	void getAllMeats() {
+		List<Topping> topping = tRepo.findByCostGreaterThan(2);
+		System.out.println(topping);
+	}
+	
+	@Test
+	void getAllNonVeggies() {
+		List<Topping> topping = tRepo.findByCostEquals(2);
+		System.out.println(topping);
+	}
+	
+	@Test
+	void getAllDollarToppings() {
+		List<Topping> topping = tRepo.findByCostLessThan(2);
+		System.out.println(topping);
 	}
 
 }
