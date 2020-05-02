@@ -2,6 +2,9 @@ package dev.supremeteam.app;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,6 +48,14 @@ class UserRepoTests {
 		System.out.println(user.getUserRole());
 		System.out.println(user.getTickets());
 	}
+	@Test
+	void getUserByuspw() {
+		User user = uRepo.findByUsernameAndPassword("schaud24", "cpassword");
+		System.out.println(user);
+		//System.out.println(user.getUserRole());
+		//System.out.println(user.getTickets());
+	}
+
 	
 	@Test
 	void updateUser() {
