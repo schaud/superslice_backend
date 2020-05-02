@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import dev.supremeteam.entities.User;
+import dev.supremeteam.entities.*;
 import dev.supremeteam.services.UserService;
 @Component
 @Controller 
@@ -28,6 +28,11 @@ public class UserController {
 	@RequestMapping(value="/user",method=RequestMethod.POST)
 	public User createAssociate(@RequestBody User u) {
 		return us.createUser(u);
+	}
+	@ResponseBody
+	@RequestMapping(value="/createTicket",method=RequestMethod.POST)
+	public Ticket createTicket(@RequestBody Ticket t) {
+		return us.createTicket(t);
 	}
 	
 }
