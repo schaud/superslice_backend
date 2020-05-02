@@ -2,6 +2,10 @@ package dev.supremeteam.app;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.HashSet;
+import java.util.List;
+
+
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -35,6 +39,21 @@ class ToppingRepoTests {
 	}
 	
 	@Test
+	void getToppingByName() {
+		Topping topping = tRepo.findByToppingName("Onions");
+		System.out.println(topping);
+	}
+	@Test
+	void getVeggieToppings() {
+		List<Topping> toppings = tRepo.findByCostLessThan(2);
+		System.out.println(toppings);
+	}
+	@Test
+	void getMeatToppings() {
+		List<Topping> toppings = tRepo.findByCostGreaterThan(1);
+		System.out.println(toppings);
+	}
+
 	void getAllMeats() {
 		List<Topping> topping = tRepo.findByCostGreaterThan(2);
 		System.out.println(topping);

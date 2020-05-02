@@ -28,10 +28,7 @@ public class Topping {
 	@Column(name="topping_cost")
 	private float cost;
 	
-	@ManyToMany
-	@JoinTable(name="pizza_topping",
-	joinColumns = {@JoinColumn(name="pt_topping")},
-	inverseJoinColumns = {@JoinColumn(name="pt_pizza")})
+	@ManyToMany(mappedBy="toppings")
 	private Set<Pizza> pizzas = new HashSet<Pizza>();
 
 	public Topping() {
