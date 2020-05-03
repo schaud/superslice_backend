@@ -13,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import dev.supremeteam.entities.Pizza;
+import dev.supremeteam.entities.PizzaForm;
 import dev.supremeteam.entities.Ticket;
 import dev.supremeteam.entities.Topping;
 import dev.supremeteam.repositories.TicketRepository;
@@ -49,7 +50,6 @@ class PizzaServiceTests {
 		Ticket ticket = ticketRepo.findById(5).get();
 		Pizza pizza = pizzaServ.meatLoversPizza(ticket, "Large");
 		System.out.println(pizza);
-		System.out.println(pizza.getToppings());
 
 		float cost = 0;
 		for (Topping topping : pizza.getToppings()) {
@@ -142,13 +142,28 @@ class PizzaServiceTests {
 		Ticket ticket = ticketRepo.findById(5).get();
 		Pizza pizza = pizzaServ.whitePizza(ticket, "Large");
 		System.out.println(pizza);
-		System.out.println(pizza.getToppings());
-
 		float cost = 0;
 		for (Topping topping : pizza.getToppings()) {
 			cost += topping.getCost();
 		}
 		System.out.println(cost);
+	}
+	
+	@Test
+//	@Commit
+	void orderPizza() {
+		Ticket ticket = ticketRepo.findById(5).get();
+		PizzaForm pizzaForm = new PizzaForm();
+		pizzaForm.setSize("Medium");
+		pizzaForm.setType("WhitePizza");
+		
+		pizzaServ.orderPizza(ticket, pizzaForm);
+	}
+	
+	@Test
+	void pizza() {
+		Ticket ticket = ticketRepo.findById(5).get();
+		System.out.println(pizzaServ.pepperoniPizza(ticket, "Small"));
 	}
 
 }

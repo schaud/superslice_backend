@@ -40,26 +40,22 @@ class ToppingRepoTests {
 		Topping topping = tRepo.findByToppingName("Onions");
 		System.out.println(topping);
 	}
+  
 	@Test
 	void getVeggieToppings() {
 		List<Topping> toppings = tRepo.findByCostLessThan(2);
 		System.out.println(toppings);
 	}
+  
 	@Test
 	void getMeatToppings() {
-		List<Topping> toppings = tRepo.findByCostBetween(2,5);
+		List<Topping> toppings = tRepo.findByCostGreaterThan(5);
 		System.out.println(toppings);
 	}
 
-<<<<<<< HEAD
 	@Test
-	void getAllSizes() {
-		List<Topping> topping = tRepo.findByCostGreaterThan(5);
-=======
-
 	void getAllMeats() {
 		List<Topping> topping = tRepo.findByCostGreaterThan(2);
->>>>>>> 286e215533febcc385e3884766c66feaa8b17f88
 		System.out.println(topping);
 	}
 	

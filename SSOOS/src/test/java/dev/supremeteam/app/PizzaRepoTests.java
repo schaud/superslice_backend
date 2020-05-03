@@ -39,7 +39,7 @@ class PizzaRepoTests {
 	
 	@Test
 	void getPizzaById() {
-		Pizza pizza = pRepo.findById(4).get();
+		Pizza pizza = pRepo.findById(11).get();
 		System.out.println(pizza);
 		System.out.println(pizza.getTicket());
 		System.out.println(pizza.getToppings());
