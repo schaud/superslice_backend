@@ -51,9 +51,15 @@ class ToppingRepoTests {
 		System.out.println(toppings);
 	}
 
+<<<<<<< HEAD
 	@Test
 	void getAllSizes() {
 		List<Topping> topping = tRepo.findByCostGreaterThan(5);
+=======
+
+	void getAllMeats() {
+		List<Topping> topping = tRepo.findByCostGreaterThan(2);
+>>>>>>> 286e215533febcc385e3884766c66feaa8b17f88
 		System.out.println(topping);
 	}
 	
