@@ -33,9 +33,5 @@ public interface PizzaService {
 	Pizza eggplantPizza(Ticket ticket, String size);
 	
 	Pizza customPizza(Ticket ticket, String size, Set<String> toppingList);
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 286e215533febcc385e3884766c66feaa8b17f88
 }
