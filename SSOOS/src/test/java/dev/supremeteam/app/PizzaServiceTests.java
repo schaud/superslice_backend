@@ -50,7 +50,6 @@ class PizzaServiceTests {
 		Ticket ticket = ticketRepo.findById(5).get();
 		Pizza pizza = pizzaServ.meatLoversPizza(ticket, "Large");
 		System.out.println(pizza);
-		System.out.println(pizza.getToppings());
 
 		float cost = 0;
 		for (Topping topping : pizza.getToppings()) {
@@ -143,8 +142,6 @@ class PizzaServiceTests {
 		Ticket ticket = ticketRepo.findById(5).get();
 		Pizza pizza = pizzaServ.whitePizza(ticket, "Large");
 		System.out.println(pizza);
-		System.out.println(pizza.getToppings());
-
 		float cost = 0;
 		for (Topping topping : pizza.getToppings()) {
 			cost += topping.getCost();
@@ -153,7 +150,7 @@ class PizzaServiceTests {
 	}
 	
 	@Test
-	@Commit
+//	@Commit
 	void orderPizza() {
 		Ticket ticket = ticketRepo.findById(5).get();
 		PizzaForm pizzaForm = new PizzaForm();
@@ -161,6 +158,12 @@ class PizzaServiceTests {
 		pizzaForm.setType("WhitePizza");
 		
 		pizzaServ.orderPizza(ticket, pizzaForm);
+	}
+	
+	@Test
+	void pizza() {
+		Ticket ticket = ticketRepo.findById(5).get();
+		System.out.println(pizzaServ.pepperoniPizza(ticket, "Small"));
 	}
 
 }
