@@ -10,4 +10,5 @@ import dev.supremeteam.entities.Ticket;
 @Repository
 public interface TicketRepository extends CrudRepository<Ticket,Integer>{
 
+//	Ticket getTicketByUsername(String name);
 }

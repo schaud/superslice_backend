@@ -1,5 +1,6 @@
 package dev.supremeteam.repositories;
 
+
 import java.util.*;
 
 import org.springframework.data.repository.CrudRepository;
@@ -11,6 +12,14 @@ import dev.supremeteam.entities.Topping;
 @Component
 @Repository
 public interface ToppingRepository extends CrudRepository<Topping,Integer>{
-	public List<Topping> findByCostLessThan(float price);
-	public List<Topping> findByCostGreaterThan(float price);
+
+	Topping findByToppingName(String toppingName);
+
+	List<Topping> findByCostGreaterThan(float cost);
+
+	List<Topping> findByCostEquals(float cost);
+
+	List<Topping> findByCostLessThan(float cost);
+	
+	List<Topping> findByCostBetween(float min,float max);
 }

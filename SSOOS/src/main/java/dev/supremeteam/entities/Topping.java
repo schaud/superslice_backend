@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -28,10 +31,7 @@ public class Topping {
 	@Column(name="topping_cost")
 	private float cost;
 	
-	@ManyToMany
-	@JoinTable(name="pizza_topping",
-	joinColumns = {@JoinColumn(name="pt_topping")},
-	inverseJoinColumns = {@JoinColumn(name="pt_pizza")})
+	@ManyToMany(mappedBy="toppings")
 	private Set<Pizza> pizzas = new HashSet<Pizza>();
 
 	public Topping() {
@@ -68,11 +68,11 @@ public class Topping {
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
-
+	@JsonIgnoreProperties({ "ticket","toppings" })
 	public Set<Pizza> getPizzas() {
 		return pizzas;
 	}
-
+	@JsonIgnoreProperties({ "ticket","toppings" })
 	public void setPizzas(Set<Pizza> pizzas) {
 		this.pizzas = pizzas;
 	}

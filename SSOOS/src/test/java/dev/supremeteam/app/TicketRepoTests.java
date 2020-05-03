@@ -50,5 +50,12 @@ class TicketRepoTests {
 		System.out.println(ticket.getUser());
 		System.out.println(ticket.getPizzas());
 	}
+	
+//	@Test
+//	void getTicketByUser() {
+//		Ticket ticket = tRepo.TicketByUsername("raymond02");
+//		System.out.println(ticket);
+//		
+//	}
 
 }
