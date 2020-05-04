@@ -35,4 +35,19 @@ public class EmployeeServiceimpl implements EmployeeService {
 		return tickets;
 	}
 
+	@Override
+	public List<Ticket> getPendingTickets() {
+		return tr.findByStatus("Pending");
+	}
+
+	@Override
+	public List<Ticket> getIncompleteTickets() {
+		return tr.findByStatusNot("Complete");
+	}
+
+	@Override
+	public List<Ticket> getCompleteTickets() {
+		return tr.findByStatus("Complete");
+	}
+
 }

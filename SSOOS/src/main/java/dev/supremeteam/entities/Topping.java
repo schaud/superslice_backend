@@ -68,7 +68,7 @@ public class Topping {
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
-	@JsonIgnoreProperties({ "ticket","toppings" })
+	@JsonIgnoreProperties({ "ticket","toppings","pizzas" })
 	public Set<Pizza> getPizzas() {
 		return pizzas;
 	}

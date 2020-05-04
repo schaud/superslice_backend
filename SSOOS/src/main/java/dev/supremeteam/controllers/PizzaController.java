@@ -61,51 +61,53 @@ public class PizzaController {
 	@RequestMapping(value = "/pizza", method = RequestMethod.GET)
 	public Pizza query(@RequestParam String toppings) {
 		// String parameter = toppings.toString();
+		Pizza pizza = new Pizza();
 		switch (toppings) {
 
 		case "WhitePizza":
-			return ps.whitePizza(ticket, size);
+			pizza = ps.whitePizza(ticket, size); break;
 		case "PlainPizza":
-			return ps.plainPizza(ticket, size);
+			pizza = ps.plainPizza(ticket, size); break;
 		case "VeggiePizza":
-			return ps.veggiePizza(ticket, size);
+			pizza = ps.veggiePizza(ticket, size); break;
 		case "MeatLoversPizza":
-			return ps.meatLoversPizza(ticket, size);
+			pizza = ps.meatLoversPizza(ticket, size); break;
 		case "HawaiianPizza":
-			return ps.hawaiianPizza(ticket, size);
+			pizza = ps.hawaiianPizza(ticket, size); break;
 		case "MediterraneanPizza":
-			return ps.mediterraneanPizza(ticket, size);
+			pizza = ps.mediterraneanPizza(ticket, size); break;
 		case "FourCheesePizza":
-			return ps.fourCheesePizza(ticket, size);
+			pizza = ps.fourCheesePizza(ticket, size); break;
 		case "AlfredoPizza":
-			return ps.alfredoPizza(ticket, size);
+			pizza = ps.alfredoPizza(ticket, size); break;
 		case "ItalianPizza":
-			return ps.italianPizza(ticket, size);
+			pizza = ps.italianPizza(ticket, size); break;
 		case "SupremePizza":
-			return ps.supremePizza(ticket, size);
+			pizza = ps.supremePizza(ticket, size); break;
 		case "PepperoniPizza":
-			return ps.pepperoniPizza(ticket, size);
+			pizza = ps.pepperoniPizza(ticket, size); break;
 		case "MushroomPizza":
-			return ps.mushroomPizza(ticket, size);
+			pizza = ps.mushroomPizza(ticket, size); break;
 		case "ChickenPizza":
-			return ps.chickenPizza(ticket, size);
+			pizza = ps.chickenPizza(ticket, size); break;
 		case "AnchoviePizza":
-			return ps.anchoviePizza(ticket, size);
+			pizza = ps.anchoviePizza(ticket, size); break;
 		case "SpinachPizza":
-			return ps.spinachPizza(ticket, size);
+			pizza = ps.spinachPizza(ticket, size); break;
 		case "BaconPizza":
-			return ps.baconPizza(ticket, size);
+			pizza = ps.baconPizza(ticket, size); break;
 		case "CauliflowerPizza":
-			return ps.cauliflowerPizza(ticket, size);
+			pizza = ps.cauliflowerPizza(ticket, size); break;
 		case "SausagePizza":
-			return ps.sausagePizza(ticket, size);
+			pizza = ps.sausagePizza(ticket, size); break;
 		case "EggplantPizza":
-			return ps.eggplantPizza(ticket, size);
+			pizza = ps.eggplantPizza(ticket, size); break;
 		case "CustomPizza":
-			return ps.customPizza(ticket, size, toppingList);
+			pizza = ps.customPizza(ticket, size, toppingList); break;
 
 		}
-		return null;
+		pizza.setCost(pizza.getCost() + 8);
+		return pizza;
 	}
 
 }

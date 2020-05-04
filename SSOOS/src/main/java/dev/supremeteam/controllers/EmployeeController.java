@@ -1,5 +1,6 @@
 package dev.supremeteam.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.server.ResponseStatusException;
@@ -45,5 +47,16 @@ public class EmployeeController {
 	catch(NoSuchElementException e) {
 		throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Could not find ticket");
 	}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/ticket", method=RequestMethod.GET)
+	public List<Ticket> getTicketByStatus(@RequestParam String status){
+		switch (status) {
+			case "Pending": return es.getPendingTickets();
+			case "Incomplete": return es.getIncompleteTickets();
+			case "Complete": return es.getCompleteTickets();
+			default: return new ArrayList<Ticket>();
+		}
 	}
 }

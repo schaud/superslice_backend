@@ -12,5 +12,8 @@ public interface EmployeeService {
 	Ticket getTicketById(int id);
 	
 	List<Ticket> getAllTickets();
+	List<Ticket> getPendingTickets();
+	List<Ticket> getIncompleteTickets();
+	List<Ticket> getCompleteTickets();
 	
 }

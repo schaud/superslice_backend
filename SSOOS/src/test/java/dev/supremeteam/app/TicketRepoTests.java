@@ -3,6 +3,7 @@ package dev.supremeteam.app;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Time;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,13 @@ class TicketRepoTests {
 		System.out.println(ticket);
 		System.out.println(ticket.getUser());
 		System.out.println(ticket.getPizzas());
+	}
+	
+	@Test
+	void getPendingTickets() {
+		List<Ticket> tickets = tRepo.findByStatusNot("Complete");
+		System.out.println(tickets);
+		System.out.println(tickets.get(2).getPizzas());
 	}
 	
 //	@Test
