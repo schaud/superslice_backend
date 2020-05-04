@@ -6,6 +6,7 @@ public interface UserService {
 	User createUser(User u);
 	
 	User loginUser(String username, String password);
+	User registerUser(String username, String password);
 	
 	Ticket createTicket(Ticket t);
 	

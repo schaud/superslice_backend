@@ -34,5 +34,10 @@ public class UserController {
 	public Ticket createTicket(@RequestBody Ticket t) {
 		return us.createTicket(t);
 	}
+	@ResponseBody
+	@RequestMapping(value="/register",method=RequestMethod.POST)
+	public User registerUser(@RequestBody User user) {
+		return us.registerUser(user.getUsername(), user.getPassword());
+	}
 	
 }
