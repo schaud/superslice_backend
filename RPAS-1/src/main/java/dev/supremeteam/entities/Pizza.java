@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="pizza")
 public class Pizza {
@@ -31,6 +33,7 @@ public class Pizza {
 	@JoinTable(name="pizza_topping",
 	joinColumns = {@JoinColumn(name="pt_pizza")},
 	inverseJoinColumns = {@JoinColumn(name="pt_topping")})
+	
 	private Set<Topping> toppings = new HashSet<Topping>();
 
 	public Pizza() {
@@ -65,11 +68,11 @@ public class Pizza {
 	public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
 	}
-
+	@JsonIgnoreProperties({ "pizzas" })
 	public Set<Topping> getToppings() {
 		return toppings;
 	}
-
+	@JsonIgnoreProperties({ "pizzas" })
 	public void setToppings(Set<Topping> toppings) {
 		this.toppings = toppings;
 	}
