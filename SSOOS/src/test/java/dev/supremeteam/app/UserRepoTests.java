@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,7 +43,7 @@ class UserRepoTests {
 	
 	@Test
 	void getUserById() {
-		User user = uRepo.findById(6).get();
+		User user = uRepo.findById(700).get();
 		System.out.println(user);
 		System.out.println(user.getUserRole());
 		System.out.println(user.getTickets());
@@ -72,7 +73,16 @@ class UserRepoTests {
 	void finduserbyname() {
 		User user = uRepo.findByUsername("raymond02");
 		System.out.println(user);
-		
+	}
+	
+	@Test
+	@Commit
+	void duplicateRegister() {
+		User user = new User();
+		user.setUsername("mohammed25");
+		user.setUserId(0);
+		user.setPassword("passwordx");
+		System.out.println(uRepo.save(user));
 	}
 
 }
