@@ -11,6 +11,4 @@ public interface EmployeeService {
 	
 	Ticket getTicketById(int id);
 	
-	List<Ticket> getAllTickets();
-	
 }

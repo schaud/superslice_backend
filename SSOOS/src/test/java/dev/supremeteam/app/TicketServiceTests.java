@@ -28,8 +28,8 @@ class TicketServiceTests {
 	@Commit
 	void test() {
 		OrderForm form = new OrderForm();
-		form.setNote("will i have 3 pizzas?");
-		form.setUsername("raymond02");
+		form.setNote("I need you to ring the bell to the melody of the Star Wars theme when you arrive");
+		form.setUsername("schaud24");
 		
 		PizzaForm form1 = new PizzaForm();
 		form1.setSize("Small");
@@ -55,9 +55,8 @@ class TicketServiceTests {
 		pizzaForms.add(form3);
 		
 		form.setPizzaForms(pizzaForms);
-		System.out.println(form);
-	//	ticketServ.createTicket(form);
-		//System.out.println();
+		
+		ticketServ.createTicket(form);
 	}
 
 }
