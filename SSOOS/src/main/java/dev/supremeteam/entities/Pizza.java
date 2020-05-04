@@ -36,7 +36,7 @@ public class Pizza {
 	
 	private Set<Topping> toppings = new HashSet<Topping>();
 	
-	private int cost = 0;
+//	private int cost = 0;
 
 	public Pizza() {
 		super();
@@ -77,20 +77,20 @@ public class Pizza {
 	@JsonIgnoreProperties({ "pizzas" })
 	public void setToppings(Set<Topping> toppings) {
 		this.toppings = toppings;
-		this.cost = 0;
-		for (Topping topping: toppings) {
-			if (topping != null)
-				this.cost += topping.getCost();
-		}
+//		this.cost = 0;
+//		for (Topping topping: toppings) {
+//			if (topping != null)
+//				this.cost += topping.getCost();
+//		}
 	}
 
-	public int getCost() {
-		return cost;
-	}
-
-	public void setCost(int cost) {
-		this.cost = cost;
-	}
+//	public int getCost() {
+//		return cost;
+//	}
+//
+//	public void setCost(int cost) {
+//		this.cost = cost;
+//	}
 
 	@Override
 	public String toString() {

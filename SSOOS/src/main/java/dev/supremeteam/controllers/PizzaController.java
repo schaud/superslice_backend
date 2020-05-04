@@ -106,7 +106,7 @@ public class PizzaController {
 			pizza = ps.customPizza(ticket, size, toppingList); break;
 
 		}
-		pizza.setCost(pizza.getCost() + 8);
+//		pizza.setCost(pizza.getCost() + 8);
 		return pizza;
 	}
 

@@ -52,6 +52,7 @@ public class EmployeeController {
 	@ResponseBody
 	@RequestMapping(value = "/ticket", method=RequestMethod.GET)
 	public List<Ticket> getTicketByStatus(@RequestParam String status){
+		System.out.println(status);
 		switch (status) {
 			case "Pending": return es.getPendingTickets();
 			case "Incomplete": return es.getIncompleteTickets();
