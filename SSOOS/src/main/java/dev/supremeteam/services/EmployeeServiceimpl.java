@@ -28,5 +28,26 @@ public class EmployeeServiceimpl implements EmployeeService {
 	public Ticket getTicketById(int id) {
 		return tr.findById(id).get();
 	}
+	
+	@Override
+	public List<Ticket> getAllTickets() {
+		List<Ticket> tickets = (List<Ticket>) tr.findAll();	
+		return tickets;
+	}
+
+	@Override
+	public List<Ticket> getPendingTickets() {
+		return tr.findByStatus("Pending");
+	}
+
+	@Override
+	public List<Ticket> getIncompleteTickets() {
+		return tr.findByStatusNot("Complete");
+	}
+
+	@Override
+	public List<Ticket> getCompleteTickets() {
+		return tr.findByStatus("Complete");
+	}
 
 }

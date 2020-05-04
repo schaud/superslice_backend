@@ -10,10 +10,7 @@ import dev.supremeteam.entities.User;
 @Repository
 public interface UserRepository extends CrudRepository<User,Integer>{
 
-	 public User findByUsernameAndPassword(String username,String password);
-	
-
-	 public User findByUsername(String name);
-	
+  User findByUsernameAndPassword(String username,String password);
+	User findByUsername(String name);
 	
 }
