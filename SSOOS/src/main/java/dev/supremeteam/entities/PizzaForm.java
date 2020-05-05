@@ -9,17 +9,27 @@ public class PizzaForm {
 	
 	private String type;
 	private String size;
+	private double cost;
 	private Set<String> toppingNames = new HashSet<String>();
 	
 	public PizzaForm() {
 		super();
 	}
 
-	public PizzaForm(String type, String size, Set<String> toppingNames) {
+	public PizzaForm(String type, String size, double cost, Set<String> toppingNames) {
 		super();
 		this.type = type;
 		this.size = size;
+		this.cost = cost;
 		this.toppingNames = toppingNames;
+	}
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
 	}
 
 	public String getType() {
