@@ -6,6 +6,7 @@ import dev.supremeteam.entities.*;
 
 public interface EmployeeService {
 	Ticket updateTicket(Ticket t);
+	Ticket updateTicket(int id, String status);
 	
 	Set<Ticket> getTicketByUser(User u);
 	

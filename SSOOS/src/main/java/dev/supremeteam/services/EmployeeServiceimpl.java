@@ -50,4 +50,11 @@ public class EmployeeServiceimpl implements EmployeeService {
 		return tr.findByStatus("Complete");
 	}
 
+	@Override
+	public Ticket updateTicket(int id, String status) {
+		Ticket ticket = tr.findById(id).get();
+		ticket.setStatus(status);
+		return tr.save(ticket);
+	}
+
 }
