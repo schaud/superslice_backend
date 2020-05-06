@@ -24,13 +24,13 @@ class PizzaRepoTests {
 	@Autowired
 	TicketRepository tRepo;
 	
-	@Test
-	void createPizza() {
-		Pizza pizza = new Pizza();
-		pizza.setPizzaId(0);
-		pizza.setTicket(tRepo.findById(8).get());
-		System.out.println(pRepo.save(pizza));
-	}
+//	@Test
+//	void createPizza() {
+//		Pizza pizza = new Pizza();
+//		pizza.setPizzaId(0);
+//		pizza.setTicket(tRepo.findById(8).get());
+//		System.out.println(pRepo.save(pizza));
+//	}
 	
 	@Test
 	void getAllPizzas() {
