@@ -60,4 +60,9 @@ public class EmployeeController {
 			default: return new ArrayList<Ticket>();
 		}
 	}
+	@ResponseBody
+	@RequestMapping(value="/update", method = RequestMethod.PUT)
+	public Ticket updateTicket(@RequestParam int id, @RequestParam String status) {
+		return es.updateTicket(id, status);
+	}
 }

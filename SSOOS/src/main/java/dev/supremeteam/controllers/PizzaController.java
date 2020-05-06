@@ -51,11 +51,6 @@ public class PizzaController {
 	public List<Topping> getSizes() {
 		return ts.getSizes();
 	}
-	@ResponseBody
-	@RequestMapping(value ="/makeOrder", method = RequestMethod.POST)
-	public Ticket createTicket(@RequestBody OrderForm orderForm) {
-		return tks.createTicket(orderForm);
-	}
 
 	@ResponseBody
 	@RequestMapping(value = "/pizza", method = RequestMethod.GET)
