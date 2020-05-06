@@ -24,18 +24,14 @@ public class PizzaController {
 	public static final Ticket ticket = new Ticket();
 	public static final String size = new String();
 	public static final Set<String> toppingList = new TreeSet<String>();
+	
 	@Autowired
 	ToppingService ts;
-	
 	@Autowired
 	TicketService tks;
-	
 	@Autowired
 	PizzaService ps;
 	
-	
-	  
-	  
 	@ResponseBody
 	@RequestMapping(value="/getMeatToppings",method=RequestMethod.GET)
 	public List<Topping> getMeats() {

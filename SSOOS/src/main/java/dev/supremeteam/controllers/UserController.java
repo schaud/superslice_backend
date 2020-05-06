@@ -29,18 +29,6 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/user",method=RequestMethod.POST)
-	public User createAssociate(@RequestBody User u) {
-		return us.createUser(u);
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="/createTicket",method=RequestMethod.POST)
-	public Ticket createTicket(@RequestBody Ticket t) {
-		return us.createTicket(t);
-	}
-	
-	@ResponseBody
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public User registerUser(@RequestBody User user) {
 		return us.registerUser(user.getUsername(), user.getPassword());
