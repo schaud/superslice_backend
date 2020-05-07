@@ -20,7 +20,7 @@ public class EmployeeServiceimpl implements EmployeeService {
 	}
 
 	@Override
-	public Set<Ticket> getTicketByUser(User u) {
+	public List<Ticket> getTicketByUser(User u) {
 		return u.getTickets();
 	}
 
@@ -37,17 +37,17 @@ public class EmployeeServiceimpl implements EmployeeService {
 
 	@Override
 	public List<Ticket> getPendingTickets() {
-		return tr.findByStatus("Pending");
+		return tr.findByStatusOrderByPlacementTimeAsc("Pending");
 	}
 
 	@Override
 	public List<Ticket> getIncompleteTickets() {
-		return tr.findByStatusNot("Complete");
+		return tr.findByStatusNotOrderByPlacementTimeAsc("Complete");
 	}
 
 	@Override
 	public List<Ticket> getCompleteTickets() {
-		return tr.findByStatus("Complete");
+		return tr.findByStatusOrderByPlacementTimeAsc("Complete");
 	}
 
 	@Override

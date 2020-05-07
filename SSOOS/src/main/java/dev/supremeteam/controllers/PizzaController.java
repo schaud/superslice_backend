@@ -23,7 +23,7 @@ import dev.supremeteam.services.ToppingService;
 public class PizzaController {
 	public static final Ticket ticket = new Ticket();
 	public static final String size = new String();
-	public static final Set<String> toppingList = new TreeSet<String>();
+	public static final List<String> toppingList = new ArrayList<String>();
 	
 	@Autowired
 	ToppingService ts;

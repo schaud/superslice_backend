@@ -36,7 +36,7 @@ public class EmployeeController {
 	}
 	@ResponseBody
 	@RequestMapping(value="/getUserTickets",method=RequestMethod.GET)
-	public Set<Ticket> getUserTickets(@RequestBody User u) {
+	public List<Ticket> getUserTickets(@RequestBody User u) {
 		return es.getTicketByUser(u);
 	}
 	@ResponseBody

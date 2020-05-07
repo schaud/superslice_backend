@@ -1,6 +1,8 @@
 package dev.supremeteam.entities;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -32,7 +34,7 @@ public class Topping {
 	private float cost;
 	
 	@ManyToMany(mappedBy="toppings")
-	private Set<Pizza> pizzas = new HashSet<Pizza>();
+	private List<Pizza> pizzas = new ArrayList<Pizza>();
 
 	public Topping() {
 		super();
@@ -69,11 +71,11 @@ public class Topping {
 		this.cost = cost;
 	}
 	@JsonIgnoreProperties({ "ticket","toppings","pizzas" })
-	public Set<Pizza> getPizzas() {
+	public List<Pizza> getPizzas() {
 		return pizzas;
 	}
 	@JsonIgnoreProperties({ "ticket","toppings" })
-	public void setPizzas(Set<Pizza> pizzas) {
+	public void setPizzas(List<Pizza> pizzas) {
 		this.pizzas = pizzas;
 	}
 

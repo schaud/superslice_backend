@@ -1,6 +1,8 @@
 package dev.supremeteam.entities;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -37,7 +39,7 @@ public class User {
 	private UserRole userRole;
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private Set<Ticket> tickets = new HashSet<Ticket>();
+	private List<Ticket> tickets = new ArrayList<Ticket>();
 
 	public User() {
 		super();
@@ -84,11 +86,11 @@ public class User {
 		this.userRole = userRole;
 	}
 	@JsonIgnoreProperties({ "pizzas","user"  })
-	public Set<Ticket> getTickets() {
+	public List<Ticket> getTickets() {
 		return tickets;
 	}
 	@JsonIgnoreProperties({ "pizzas","user" })
-	public void setTickets(Set<Ticket> tickets) {
+	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
 	}
 

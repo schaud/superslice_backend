@@ -2,7 +2,9 @@ package dev.supremeteam.app;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.jupiter.api.Test;
@@ -76,7 +78,7 @@ class PizzaServiceTests {
 	void customPizza() {
 		Ticket ticket = ticketRepo.findById(5).get();
 		
-		Set<String> toppingList = new HashSet<String>();
+		List<String> toppingList = new ArrayList<String>();
 		toppingList.add("Mushrooms");
 		toppingList.add("Onions");
 		toppingList.add("Tomatoes");

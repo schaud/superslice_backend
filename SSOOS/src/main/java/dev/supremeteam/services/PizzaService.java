@@ -1,5 +1,6 @@
 package dev.supremeteam.services;
 
+import java.util.List;
 import java.util.Set;
 
 import dev.supremeteam.entities.Pizza;
@@ -32,6 +33,6 @@ public interface PizzaService {
 	Pizza sausagePizza(Ticket ticket, String size);
 	Pizza eggplantPizza(Ticket ticket, String size);
 	
-	Pizza customPizza(Ticket ticket, String size, Set<String> toppingList);
+	Pizza customPizza(Ticket ticket, String size, List<String> toppingList);
 
 }

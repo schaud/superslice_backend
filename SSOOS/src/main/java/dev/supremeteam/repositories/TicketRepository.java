@@ -12,7 +12,7 @@ import dev.supremeteam.entities.Ticket;
 @Repository
 public interface TicketRepository extends CrudRepository<Ticket,Integer>{
 
-	List<Ticket> findByStatusNot(String status);
-	List<Ticket> findByStatus(String status);
+	List<Ticket> findByStatusNotOrderByPlacementTimeAsc(String status);
+	List<Ticket> findByStatusOrderByPlacementTimeAsc(String status);
 //	Ticket getTicketByUsername(String name);
 }
