@@ -8,7 +8,7 @@ public interface EmployeeService {
 	Ticket updateTicket(Ticket t);
 	Ticket updateTicket(int id, String status);
 	
-	Set<Ticket> getTicketByUser(User u);
+	List<Ticket> getTicketByUser(User u);
 	
 	Ticket getTicketById(int id);
 	

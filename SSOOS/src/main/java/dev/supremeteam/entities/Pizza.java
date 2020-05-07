@@ -1,6 +1,8 @@
 package dev.supremeteam.entities;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -34,7 +36,7 @@ public class Pizza {
 	joinColumns = {@JoinColumn(name="pt_pizza")},
 	inverseJoinColumns = {@JoinColumn(name="pt_topping")})
 	
-	private Set<Topping> toppings = new HashSet<Topping>();
+	private List<Topping> toppings = new ArrayList<Topping>();
 	
 //	private int cost = 0;
 
@@ -42,7 +44,7 @@ public class Pizza {
 		super();
 	}
 
-	public Pizza(int pizzaId, Ticket ticket, Set<Topping> toppings) {
+	public Pizza(int pizzaId, Ticket ticket, List<Topping> toppings) {
 		super();
 		this.pizzaId = pizzaId;
 		this.ticket = ticket;
@@ -71,11 +73,11 @@ public class Pizza {
 		this.ticket = ticket;
 	}
 	@JsonIgnoreProperties({ "pizzas" })
-	public Set<Topping> getToppings() {
+	public List<Topping> getToppings() {
 		return toppings;
 	}
 	@JsonIgnoreProperties({ "pizzas" })
-	public void setToppings(Set<Topping> toppings) {
+	public void setToppings(List<Topping> toppings) {
 		this.toppings = toppings;
 //		this.cost = 0;
 //		for (Topping topping: toppings) {

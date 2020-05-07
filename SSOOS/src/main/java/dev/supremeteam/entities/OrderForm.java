@@ -1,6 +1,8 @@
 package dev.supremeteam.entities;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -9,13 +11,13 @@ public class OrderForm {
 	
 	private String username;
 	private String note;
-	private Set<PizzaForm> pizzaForms = new HashSet<PizzaForm>();
+	private List<PizzaForm> pizzaForms = new ArrayList<PizzaForm>();
 	
 	public OrderForm() {
 		super();
 	}
 
-	public OrderForm(String username, String note, Set<PizzaForm> pizzaForms) {
+	public OrderForm(String username, String note, List<PizzaForm> pizzaForms) {
 		super();
 		this.username = username;
 		this.note = note;
@@ -38,11 +40,11 @@ public class OrderForm {
 		this.note = note;
 	}
 
-	public Set<PizzaForm> getPizzaForms() {
+	public List<PizzaForm> getPizzaForms() {
 		return pizzaForms;
 	}
 
-	public void setPizzaForms(Set<PizzaForm> pizzaForms) {
+	public void setPizzaForms(List<PizzaForm> pizzaForms) {
 		this.pizzaForms = pizzaForms;
 	}
 

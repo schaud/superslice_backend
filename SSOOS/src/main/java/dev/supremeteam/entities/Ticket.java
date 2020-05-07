@@ -1,7 +1,9 @@
 package dev.supremeteam.entities;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -36,7 +38,7 @@ public class Ticket {
 	private String note;
 	
 	@OneToMany(mappedBy="ticket", fetch=FetchType.LAZY)
-	private Set<Pizza> pizzas = new HashSet<Pizza>();
+	private List<Pizza> pizzas = new ArrayList<Pizza>();
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -55,7 +57,7 @@ public class Ticket {
 		this.user = user;
 	}
 
-	public Ticket(int ticketId, Time placementTime, String status, String note, Set<Pizza> pizzas, User user) {
+	public Ticket(int ticketId, Time placementTime, String status, String note, List<Pizza> pizzas, User user) {
 		super();
 		this.ticketId = ticketId;
 		this.placementTime = placementTime;
@@ -105,11 +107,11 @@ public class Ticket {
 		this.user = user;
 	}
 	@JsonIgnoreProperties({ "ticket"})
-	public Set<Pizza> getPizzas() {
+	public List<Pizza> getPizzas() {
 		return pizzas;
 	}
 
-	public void setPizzas(Set<Pizza> pizzas) {
+	public void setPizzas(List<Pizza> pizzas) {
 		this.pizzas = pizzas;
 	}
 

@@ -1,6 +1,8 @@
 package dev.supremeteam.services;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +58,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(11).get());
 		toppings.add(toppingRepo.findById(12).get());
@@ -74,7 +76,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(22).get());
 		toppings.add(toppingRepo.findById(23).get());
@@ -92,7 +94,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(11).get());
 		toppings.add(toppingRepo.findById(21).get());
@@ -104,12 +106,12 @@ public class PizzaServiceImpl implements PizzaService {
 	}
 
 	@Override
-	public Pizza customPizza(Ticket ticket, String size, Set<String> toppingList) {
+	public Pizza customPizza(Ticket ticket, String size, List<String> toppingList) {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
 
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		for (String toppingName : toppingList) {
 			toppings.add(toppingRepo.findByToppingName(toppingName));
@@ -127,7 +129,7 @@ public class PizzaServiceImpl implements PizzaService {
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
 
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		pizza.setToppings(toppings);
 
@@ -139,7 +141,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(14).get());
 		toppings.add(toppingRepo.findById(16).get());
@@ -155,7 +157,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(20).get());
 		toppings.add(toppingRepo.findById(34).get());
@@ -171,7 +173,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(35).get());
 		toppings.add(toppingRepo.findById(36).get());
@@ -187,7 +189,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(17).get());
 		toppings.add(toppingRepo.findById(24).get());
@@ -203,7 +205,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(16).get());
 		toppings.add(toppingRepo.findById(26).get());
@@ -219,7 +221,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(10).get());
 		toppings.add(toppingRepo.findById(11).get());
@@ -235,7 +237,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(29).get());
 		pizza.setToppings(toppings);
@@ -248,7 +250,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(10).get());
 		pizza.setToppings(toppings);
@@ -261,7 +263,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(24).get());
 		pizza.setToppings(toppings);
@@ -274,7 +276,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(27).get());
 		pizza.setToppings(toppings);
@@ -287,7 +289,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(33).get());
 		pizza.setToppings(toppings);
@@ -300,7 +302,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(23).get());
 		pizza.setToppings(toppings);
@@ -313,7 +315,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(19).get());
 		pizza.setToppings(toppings);
@@ -326,7 +328,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(22).get());
 		pizza.setToppings(toppings);
@@ -339,7 +341,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-		Set<Topping> toppings = new HashSet<Topping>();
+		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		toppings.add(toppingRepo.findById(18).get());
 		pizza.setToppings(toppings);

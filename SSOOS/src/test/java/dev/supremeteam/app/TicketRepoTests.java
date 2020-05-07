@@ -54,7 +54,7 @@ class TicketRepoTests {
 	
 	@Test
 	void getPendingTickets() {
-		List<Ticket> tickets = tRepo.findByStatusNot("Complete");
+		List<Ticket> tickets = tRepo.findByStatusNotOrderByPlacementTimeAsc("Complete");
 		System.out.println(tickets);
 		System.out.println(tickets.get(2).getPizzas());
 	}
