@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
+// Here I am
 @SpringBootApplication
 @EntityScan("dev.supremeteam.entities")
 @ComponentScan("dev.supremeteam")
