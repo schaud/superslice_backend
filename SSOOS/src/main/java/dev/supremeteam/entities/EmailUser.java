@@ -4,6 +4,7 @@ public class EmailUser {
 
 	private String username;
 	private String emailAddress;
+	private String comments;
 
 	public String getUsername() {
 		return username;
@@ -24,6 +25,14 @@ public class EmailUser {
 	@Override
 	public String toString() {
 		return "EmailUser [username=" + username + ", emailAddress=" + emailAddress + "]";
+	}
+
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 
 }

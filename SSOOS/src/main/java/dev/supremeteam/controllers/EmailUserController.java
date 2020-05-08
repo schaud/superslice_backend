@@ -7,15 +7,14 @@ import org.springframework.mail.MailException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import dev.supremeteam.entities.EmailUser;
-import dev.supremeteam.entities.User;
+import dev.supremeteam.entities.OrderForm;
+import dev.supremeteam.entities.Ticket;
 import dev.supremeteam.services.EmailService;
 
 @Component
@@ -43,6 +42,12 @@ public class EmailUserController {
 			LOGGER.error("Could not send email to " + user.getUsername(), e);
 		}
 		return "Sorry, Something went wrong.";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
+	public EmailUser createEmail(@RequestBody EmailUser euser) {
+		return emailserv.createEmail(euser);
 	}
 
 }
