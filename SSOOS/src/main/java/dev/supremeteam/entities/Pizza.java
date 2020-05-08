@@ -31,6 +31,9 @@ public class Pizza {
 	@JoinColumn(name="ticket_id")
 	private Ticket ticket;
 	
+	@Column(name="pizza_type")
+	private String type;
+	
 	@ManyToMany
 	@JoinTable(name="pizza_topping",
 	joinColumns = {@JoinColumn(name="pt_pizza")},
@@ -94,9 +97,17 @@ public class Pizza {
 //		this.cost = cost;
 //	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	@Override
 	public String toString() {
-		return "Pizza [pizzaId=" + pizzaId + ", toppings=" + toppings + "]";
+		return "Pizza [pizzaId=" + pizzaId + ", toppings=" + toppings + ", pizza type="+ type +"]";
 	}
 	
 	

@@ -1,5 +1,6 @@
 package dev.supremeteam.services;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
@@ -39,6 +40,14 @@ public class TicketServiceimpl implements TicketService{
 		long now = System.currentTimeMillis();
 		Time time = new Time(now);
 		ticket.setPlacementTime(time);
+		
+		ticket.setTotalCost(0);
+		for (PizzaForm pizzaForm:orderForm.getPizzaForms())
+			ticket.setTotalCost(ticket.getTotalCost() + pizzaForm.getCost());
+		
+		long millis = System.currentTimeMillis();
+		Date date = new Date(millis);
+		ticket.setPlacementDate(date);
 		
 		ticket.setUser(userRepo.findByUsername(orderForm.getUsername()));
 		ticket = ticketRepo.save(ticket);

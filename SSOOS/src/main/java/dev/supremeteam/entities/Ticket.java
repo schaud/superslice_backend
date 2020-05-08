@@ -1,5 +1,6 @@
 package dev.supremeteam.entities;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -36,6 +37,12 @@ public class Ticket {
 	
 	@Column(name="note")
 	private String note;
+	
+	@Column(name="total_cost")
+	private float totalCost;
+	
+	@Column(name="placement_date")
+	private Date placementDate;
 	
 	@OneToMany(mappedBy="ticket", fetch=FetchType.LAZY)
 	private List<Pizza> pizzas = new ArrayList<Pizza>();
@@ -97,6 +104,22 @@ public class Ticket {
 
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+	public float getTotalCost() {
+		return totalCost;
+	}
+
+	public void setTotalCost(float totalCost) {
+		this.totalCost = totalCost;
+	}
+
+	public Date getPlacementDate() {
+		return placementDate;
+	}
+
+	public void setPlacementDate(Date placementDate) {
+		this.placementDate = placementDate;
 	}
 
 	public User getUser() {
