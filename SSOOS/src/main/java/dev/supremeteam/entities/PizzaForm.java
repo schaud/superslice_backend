@@ -11,14 +11,15 @@ public class PizzaForm {
 	
 	private String type;
 	private String size;
-	private double cost;
+	private float cost;
+	private int quantity;
 	private List<String> toppingNames = new ArrayList<String>();
 	
 	public PizzaForm() {
 		super();
 	}
 
-	public PizzaForm(String type, String size, double cost, List<String> toppingNames) {
+	public PizzaForm(String type, String size, float cost, List<String> toppingNames) {
 		super();
 		this.type = type;
 		this.size = size;
@@ -26,11 +27,11 @@ public class PizzaForm {
 		this.toppingNames = toppingNames;
 	}
 
-	public double getCost() {
+	public float getCost() {
 		return cost;
 	}
 
-	public void setCost(int cost) {
+	public void setCost(float cost) {
 		this.cost = cost;
 	}
 
@@ -48,6 +49,14 @@ public class PizzaForm {
 
 	public void setSize(String size) {
 		this.size = size;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public List<String> getToppingNames() {

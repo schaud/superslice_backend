@@ -28,28 +28,29 @@ public class PizzaServiceImpl implements PizzaService {
 
 	@Override
 	public void orderPizza(Ticket ticket, PizzaForm pizzaForm) {
-		
-		switch (pizzaForm.getType()) {
-		case "VeggiePizza": pizzaRepo.save(veggiePizza(ticket, pizzaForm.getSize())); break;
-		case "MeatLoversPizza": pizzaRepo.save(meatLoversPizza(ticket, pizzaForm.getSize())); break;
-		case "HawaiianPizza": pizzaRepo.save(hawaiianPizza(ticket, pizzaForm.getSize())); break;
-		case "MediterraneanPizza": pizzaRepo.save(mediterraneanPizza(ticket, pizzaForm.getSize())); break;
-		case "FourCheesePizza": pizzaRepo.save(fourCheesePizza(ticket, pizzaForm.getSize())); break;
-		case "WhitePizza": pizzaRepo.save(whitePizza(ticket, pizzaForm.getSize())); break;
-		case "AlfredoPizza": pizzaRepo.save(alfredoPizza(ticket, pizzaForm.getSize())); break;
-		case "ItalianPizza": pizzaRepo.save(italianPizza(ticket, pizzaForm.getSize())); break;
-		case "SupremePizza": pizzaRepo.save(supremePizza(ticket, pizzaForm.getSize())); break;
-		case "PepperoniPizza": pizzaRepo.save(pepperoniPizza(ticket, pizzaForm.getSize())); break;
-		case "MushroomPizza": pizzaRepo.save(mushroomPizza(ticket, pizzaForm.getSize())); break;
-		case "ChickenPizza": pizzaRepo.save(chickenPizza(ticket, pizzaForm.getSize())); break;
-		case "AnchoviePizza": pizzaRepo.save(anchoviePizza(ticket, pizzaForm.getSize())); break;
-		case "SpinachPizza": pizzaRepo.save(spinachPizza(ticket, pizzaForm.getSize())); break;
-		case "BaconPizza": pizzaRepo.save(baconPizza(ticket, pizzaForm.getSize())); break;
-		case "CauliflowerPizza": pizzaRepo.save(cauliflowerPizza(ticket, pizzaForm.getSize())); break;
-		case "SausagePizza": pizzaRepo.save(sausagePizza(ticket, pizzaForm.getSize())); break;
-		case "EggplantPizza": pizzaRepo.save(eggplantPizza(ticket, pizzaForm.getSize())); break;
-		case "CustomPizza": pizzaRepo.save(customPizza(ticket, pizzaForm.getSize(), pizzaForm.getToppingNames())); break;
-		case "PlainPizza": pizzaRepo.save(plainPizza(ticket, pizzaForm.getSize())); break;
+		for (int i = 0; i < pizzaForm.getQuantity(); i++) {
+			switch (pizzaForm.getType()) {
+			case "VeggiePizza": pizzaRepo.save(veggiePizza(ticket, pizzaForm.getSize())); break;
+			case "MeatLoversPizza": pizzaRepo.save(meatLoversPizza(ticket, pizzaForm.getSize())); break;
+			case "HawaiianPizza": pizzaRepo.save(hawaiianPizza(ticket, pizzaForm.getSize())); break;
+			case "MediterraneanPizza": pizzaRepo.save(mediterraneanPizza(ticket, pizzaForm.getSize())); break;
+			case "FourCheesePizza": pizzaRepo.save(fourCheesePizza(ticket, pizzaForm.getSize())); break;
+			case "WhitePizza": pizzaRepo.save(whitePizza(ticket, pizzaForm.getSize())); break;
+			case "AlfredoPizza": pizzaRepo.save(alfredoPizza(ticket, pizzaForm.getSize())); break;
+			case "ItalianPizza": pizzaRepo.save(italianPizza(ticket, pizzaForm.getSize())); break;
+			case "SupremePizza": pizzaRepo.save(supremePizza(ticket, pizzaForm.getSize())); break;
+			case "PepperoniPizza": pizzaRepo.save(pepperoniPizza(ticket, pizzaForm.getSize())); break;
+			case "MushroomPizza": pizzaRepo.save(mushroomPizza(ticket, pizzaForm.getSize())); break;
+			case "ChickenPizza": pizzaRepo.save(chickenPizza(ticket, pizzaForm.getSize())); break;
+			case "AnchoviePizza": pizzaRepo.save(anchoviePizza(ticket, pizzaForm.getSize())); break;
+			case "SpinachPizza": pizzaRepo.save(spinachPizza(ticket, pizzaForm.getSize())); break;
+			case "BaconPizza": pizzaRepo.save(baconPizza(ticket, pizzaForm.getSize())); break;
+			case "CauliflowerPizza": pizzaRepo.save(cauliflowerPizza(ticket, pizzaForm.getSize())); break;
+			case "SausagePizza": pizzaRepo.save(sausagePizza(ticket, pizzaForm.getSize())); break;
+			case "EggplantPizza": pizzaRepo.save(eggplantPizza(ticket, pizzaForm.getSize())); break;
+			case "CustomPizza": pizzaRepo.save(customPizza(ticket, pizzaForm.getSize(), pizzaForm.getToppingNames())); break;
+			case "PlainPizza": pizzaRepo.save(plainPizza(ticket, pizzaForm.getSize())); break;
+			}
 		}
 	}
 	
@@ -58,14 +59,15 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("VeggiePizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(11).get());
-		toppings.add(toppingRepo.findById(12).get());
-		toppings.add(toppingRepo.findById(17).get());
-		toppings.add(toppingRepo.findById(18).get());
-		toppings.add(toppingRepo.findById(19).get());
-		toppings.add(toppingRepo.findById(13).get());
+		toppings.add(toppingRepo.findByToppingName("Onions"));
+		toppings.add(toppingRepo.findByToppingName("Green Peppers"));
+		toppings.add(toppingRepo.findByToppingName("Red Peppers"));
+		toppings.add(toppingRepo.findByToppingName("Broccoli"));
+		toppings.add(toppingRepo.findByToppingName("Roasted Eggplant"));
+		toppings.add(toppingRepo.findByToppingName("Roasted Cauliflower"));
 		pizza.setToppings(toppings);
 		
 		return pizza;
@@ -76,14 +78,15 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("MeatLoversPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(22).get());
-		toppings.add(toppingRepo.findById(23).get());
-		toppings.add(toppingRepo.findById(25).get());
-		toppings.add(toppingRepo.findById(28).get());
-		toppings.add(toppingRepo.findById(29).get());
-		toppings.add(toppingRepo.findById(24).get());
+		toppings.add(toppingRepo.findByToppingName("Sausage"));
+		toppings.add(toppingRepo.findByToppingName("Bacon"));
+		toppings.add(toppingRepo.findByToppingName("Chicken"));
+		toppings.add(toppingRepo.findByToppingName("Meatballs"));
+		toppings.add(toppingRepo.findByToppingName("Ham"));
+		toppings.add(toppingRepo.findByToppingName("Pepperoni"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -94,12 +97,13 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("HawaiianPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(11).get());
-		toppings.add(toppingRepo.findById(21).get());
-		toppings.add(toppingRepo.findById(24).get());
-		toppings.add(toppingRepo.findById(28).get());
+		toppings.add(toppingRepo.findByToppingName("Onions"));
+		toppings.add(toppingRepo.findByToppingName("Pineapples"));
+		toppings.add(toppingRepo.findByToppingName("Chicken"));
+		toppings.add(toppingRepo.findByToppingName("Ham"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -110,7 +114,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-
+		pizza.setType("CustomPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		for (String toppingName : toppingList) {
@@ -128,7 +132,7 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
-
+		pizza.setType("PlainPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
 		pizza.setToppings(toppings);
@@ -141,12 +145,13 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("MediterraneanPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(14).get());
-		toppings.add(toppingRepo.findById(16).get());
-		toppings.add(toppingRepo.findById(33).get());
-		toppings.add(toppingRepo.findById(34).get());
+		toppings.add(toppingRepo.findByToppingName("Black Olives"));
+		toppings.add(toppingRepo.findByToppingName("Tomatoes"));
+		toppings.add(toppingRepo.findByToppingName("Spinach"));
+		toppings.add(toppingRepo.findByToppingName("Feta Cheese"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -157,12 +162,13 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("FourCheesePizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(20).get());
-		toppings.add(toppingRepo.findById(34).get());
-		toppings.add(toppingRepo.findById(35).get());
-		toppings.add(toppingRepo.findById(36).get());
+		toppings.add(toppingRepo.findByToppingName("Extra Cheese"));
+		toppings.add(toppingRepo.findByToppingName("Feta Cheese"));
+		toppings.add(toppingRepo.findByToppingName("Parmesan Cheese"));
+		toppings.add(toppingRepo.findByToppingName("Ricotta Cheese"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -173,12 +179,13 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("WhitePizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(35).get());
-		toppings.add(toppingRepo.findById(36).get());
-		toppings.add(toppingRepo.findById(37).get());
-		toppings.add(toppingRepo.findById(19).get());
+		toppings.add(toppingRepo.findByToppingName("Roasted Cauliflower"));
+		toppings.add(toppingRepo.findByToppingName("Parmesan Cheese"));
+		toppings.add(toppingRepo.findByToppingName("Ricotta Cheese"));
+		toppings.add(toppingRepo.findByToppingName("White Sauce"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -189,12 +196,13 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("AlfredoPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(17).get());
-		toppings.add(toppingRepo.findById(24).get());
-		toppings.add(toppingRepo.findById(35).get());
-		toppings.add(toppingRepo.findById(37).get());
+		toppings.add(toppingRepo.findByToppingName("Broccoli"));
+		toppings.add(toppingRepo.findByToppingName("Chicken"));
+		toppings.add(toppingRepo.findByToppingName("Parmesan Cheese"));
+		toppings.add(toppingRepo.findByToppingName("White Sauce"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -205,12 +213,13 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("ItalianPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(16).get());
-		toppings.add(toppingRepo.findById(26).get());
-		toppings.add(toppingRepo.findById(35).get());
-		toppings.add(toppingRepo.findById(36).get());
+		toppings.add(toppingRepo.findByToppingName("Tomatoes"));
+		toppings.add(toppingRepo.findByToppingName("Proscuitto"));
+		toppings.add(toppingRepo.findByToppingName("Parmesan Cheese"));
+		toppings.add(toppingRepo.findByToppingName("Ricotta Cheese"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -221,12 +230,14 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("SupremePizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(10).get());
-		toppings.add(toppingRepo.findById(11).get());
-		toppings.add(toppingRepo.findById(20).get());
-		toppings.add(toppingRepo.findById(29).get());
+		toppings.add(toppingRepo.findByToppingName("Mushrooms"));
+		toppings.add(toppingRepo.findByToppingName("Onions"));
+		toppings.add(toppingRepo.findByToppingName("Extra Cheese"));
+		toppings.add(toppingRepo.findByToppingName("Pepperoni"));
+
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -237,9 +248,10 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("PepperoniPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(29).get());
+		toppings.add(toppingRepo.findByToppingName("Pepperoni"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -250,9 +262,10 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("MushroomPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(10).get());
+		toppings.add(toppingRepo.findByToppingName("Mushrooms"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -263,9 +276,10 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("ChickenPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(24).get());
+		toppings.add(toppingRepo.findByToppingName("Chicken"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -276,9 +290,10 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("AnchoviePizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(27).get());
+		toppings.add(toppingRepo.findByToppingName("Anchovies"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -289,9 +304,10 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("SpinachPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(33).get());
+		toppings.add(toppingRepo.findByToppingName("Spinach"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -302,9 +318,10 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("BaconPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(23).get());
+		toppings.add(toppingRepo.findByToppingName("Bacon"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -315,9 +332,10 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("CauliflowerPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(19).get());
+		toppings.add(toppingRepo.findByToppingName("Roasted Cauliflower"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -328,9 +346,10 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("SausagePizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(22).get());
+		toppings.add(toppingRepo.findByToppingName("Sausage"));
 		pizza.setToppings(toppings);
 
 		return pizza;
@@ -341,9 +360,10 @@ public class PizzaServiceImpl implements PizzaService {
 		Pizza pizza = new Pizza();
 		pizza.setTicket(ticket);
 		pizza.setPizzaId(0);
+		pizza.setType("EggplantPizza");
 		List<Topping> toppings = new ArrayList<Topping>();
 		toppings.add(toppingRepo.findByToppingName(size));
-		toppings.add(toppingRepo.findById(18).get());
+		toppings.add(toppingRepo.findByToppingName("Roasted Eggplant"));
 		pizza.setToppings(toppings);
 
 		return pizza;
