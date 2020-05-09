@@ -46,7 +46,7 @@ class TicketRepoTests {
 	
 	@Test
 	void getTicketById() {
-		Ticket ticket = tRepo.findById(5).get();
+		Ticket ticket = tRepo.findById(55).get();
 		System.out.println(ticket);
 		System.out.println(ticket.getUser());
 		System.out.println(ticket.getPizzas());
@@ -56,7 +56,7 @@ class TicketRepoTests {
 	void getPendingTickets() {
 		List<Ticket> tickets = tRepo.findByStatusNotOrderByPlacementTimeAsc("Complete");
 		System.out.println(tickets);
-		System.out.println(tickets.get(2).getPizzas());
+		System.out.println(tickets.get(1).getPizzas());
 	}
 	
 //	@Test

@@ -35,7 +35,7 @@ class PizzaServiceTests {
 	@Test
 //	@Commit
 	void veggiePizza() {
-		Ticket ticket = ticketRepo.findById(5).get();
+		Ticket ticket = ticketRepo.findById(55).get();
 		Pizza pizza = pizzaServ.veggiePizza(ticket, "Medium");
 		System.out.println(pizza);
 		System.out.println(pizza.getToppings());
@@ -49,7 +49,7 @@ class PizzaServiceTests {
 
 	@Test
 	void meatLoversPizza() {
-		Ticket ticket = ticketRepo.findById(5).get();
+		Ticket ticket = ticketRepo.findById(55).get();
 		Pizza pizza = pizzaServ.meatLoversPizza(ticket, "Large");
 		System.out.println(pizza);
 
@@ -62,7 +62,7 @@ class PizzaServiceTests {
 
 	@Test
 	void hawaiianPizza() {
-		Ticket ticket = ticketRepo.findById(5).get();
+		Ticket ticket = ticketRepo.findById(55).get();
 		Pizza pizza = pizzaServ.hawaiianPizza(ticket, "Small");
 		System.out.println(pizza);
 		System.out.println(pizza.getToppings());
@@ -76,7 +76,7 @@ class PizzaServiceTests {
 	
 	@Test
 	void customPizza() {
-		Ticket ticket = ticketRepo.findById(5).get();
+		Ticket ticket = ticketRepo.findById(55).get();
 		
 		List<String> toppingList = new ArrayList<String>();
 		toppingList.add("Mushrooms");
@@ -99,7 +99,7 @@ class PizzaServiceTests {
 	
 	@Test
 	void plainPizza() {
-		Ticket ticket = ticketRepo.findById(5).get();
+		Ticket ticket = ticketRepo.findById(55).get();
 		Pizza pizza = pizzaServ.plainPizza(ticket, "Medium");
 		System.out.println(pizza);
 		System.out.println(pizza.getToppings());
@@ -113,7 +113,7 @@ class PizzaServiceTests {
 	
 	@Test
 	void mediterraneanPizza() {
-		Ticket ticket = ticketRepo.findById(5).get();
+		Ticket ticket = ticketRepo.findById(55).get();
 		Pizza pizza = pizzaServ.mediterraneanPizza(ticket, "Medium");
 		System.out.println(pizza);
 		System.out.println(pizza.getToppings());
@@ -127,7 +127,7 @@ class PizzaServiceTests {
 	
 	@Test
 	void fourCheesePizza() {
-		Ticket ticket = ticketRepo.findById(5).get();
+		Ticket ticket = ticketRepo.findById(55).get();
 		Pizza pizza = pizzaServ.fourCheesePizza(ticket, "Large");
 		System.out.println(pizza);
 		System.out.println(pizza.getToppings());
@@ -141,7 +141,7 @@ class PizzaServiceTests {
 	
 	@Test
 	void whitePizza() {
-		Ticket ticket = ticketRepo.findById(5).get();
+		Ticket ticket = ticketRepo.findById(55).get();
 		Pizza pizza = pizzaServ.whitePizza(ticket, "Large");
 		System.out.println(pizza);
 		float cost = 0;
@@ -164,7 +164,7 @@ class PizzaServiceTests {
 	
 	@Test
 	void pizza() {
-		Ticket ticket = ticketRepo.findById(5).get();
+		Ticket ticket = ticketRepo.findById(55).get();
 		System.out.println(pizzaServ.pepperoniPizza(ticket, "Small"));
 	}
 
