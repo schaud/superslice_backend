@@ -14,5 +14,6 @@ public interface TicketRepository extends CrudRepository<Ticket,Integer>{
 
 	List<Ticket> findByStatusNotOrderByPlacementTimeAsc(String status);
 	List<Ticket> findByStatusOrderByPlacementTimeAsc(String status);
+	List<Ticket> findAllByOrderByPlacementTimeAsc();
 //	Ticket getTicketByUsername(String name);
 }

@@ -70,5 +70,13 @@ class ToppingRepoTests {
 		List<Topping> topping = tRepo.findByCostLessThan(2);
 		System.out.println(topping);
 	}
+	
+	@Test
+	void sortByOrder() {
+		List<Topping> toppings = tRepo.findOrderedToppings();
+		for (Topping t : toppings) {
+			System.out.println(t.getToppingName() + ": " + t.getPizzas().size());
+		}
+	}
 
 }
