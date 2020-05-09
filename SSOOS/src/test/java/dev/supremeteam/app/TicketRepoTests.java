@@ -59,6 +59,11 @@ class TicketRepoTests {
 		System.out.println(tickets.get(1).getPizzas());
 	}
 	
+	@Test
+	void findOrderByPlacementTime() {
+		System.out.println(tRepo.findAllByOrderByPlacementTimeAsc());
+	}
+	
 //	@Test
 //	void getTicketByUser() {
 //		Ticket ticket = tRepo.TicketByUsername("raymond02");
