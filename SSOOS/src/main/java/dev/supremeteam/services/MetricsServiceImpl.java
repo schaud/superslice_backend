@@ -63,4 +63,26 @@ public class MetricsServiceImpl implements MetricsService{
 		return 0;
 	}
 
+	@Override
+	public String[] getTopToppingNames() {
+		String[] top = new String[5];
+		List<Topping> toppings = toppingRepo.findOrderedToppings();
+		for (int i = 0; i < 5; i++) {
+//			top.put(toppings.get(i).getToppingName(),toppings.get(i).getPizzas().size());
+			top[i] = toppings.get(i).getToppingName();
+		}
+		return top;
+	}
+
+	@Override
+	public int[] getTopToppingAmounts() {
+		int[] top = new int[5];
+		List<Topping> toppings = toppingRepo.findOrderedToppings();
+		for (int i = 0; i < 5; i++) {
+//			top.put(toppings.get(i).getToppingName(),toppings.get(i).getPizzas().size());
+			top[i] = toppings.get(i).getPizzas().size();
+		}
+		return top;
+	}
+
 }

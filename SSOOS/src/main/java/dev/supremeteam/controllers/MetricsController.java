@@ -31,5 +31,17 @@ public class MetricsController {
 	public Map<String,Integer> getTopFiveToppings(){
 		return metServ.getTopToppings();
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="metrics/topping/names", method = RequestMethod.GET)
+	public String[] getTopToppingNames() {
+		return metServ.getTopToppingNames();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="metrics/topping/amounts", method = RequestMethod.GET)
+	public int[] getTopToppingAmounts() {
+		return metServ.getTopToppingAmounts();
+	}
 
 }
