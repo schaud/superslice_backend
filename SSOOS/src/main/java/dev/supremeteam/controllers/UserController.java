@@ -1,9 +1,12 @@
 package dev.supremeteam.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,5 +41,11 @@ public class UserController {
 	@RequestMapping(value ="/makeOrder", method = RequestMethod.POST)
 	public Ticket createTicket(@RequestBody OrderForm orderForm) {
 		return tks.createTicket(orderForm);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/tickets/{username}", method = RequestMethod.GET)
+	public List<Ticket> getUserTickets(@PathVariable String username) {
+		return us.getTicketsByUser(username);
 	}
 }

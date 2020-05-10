@@ -13,7 +13,7 @@ import dev.supremeteam.services.UserService;
 
 @SpringBootTest
 @ContextConfiguration(classes=dev.supremeteam.app.SsoosApplication.class)
-//@Transactional
+@Transactional
 class UserServiceTests {
 
 	@Autowired
@@ -23,6 +23,11 @@ class UserServiceTests {
 //	@Commit
 	void registerUser() {
 		System.out.println(userServ.registerUser("Cloud95", "password"));
+	}
+	
+	@Test
+	void getTicketsByUser() {
+		System.out.println(userServ.getTicketsByUser("schaud24"));
 	}
 
 }

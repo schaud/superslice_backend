@@ -64,11 +64,9 @@ class TicketRepoTests {
 		System.out.println(tRepo.findAllByOrderByPlacementTimeAsc());
 	}
 	
-//	@Test
-//	void getTicketByUser() {
-//		Ticket ticket = tRepo.TicketByUsername("raymond02");
-//		System.out.println(ticket);
-//		
-//	}
+	@Test
+	void findByUser() {
+		System.out.println(tRepo.findByUserOrderByTicketId(uRepo.findById(15).get()));
+	}
 
 }
