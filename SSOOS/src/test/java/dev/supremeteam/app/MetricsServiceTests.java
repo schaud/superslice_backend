@@ -38,4 +38,19 @@ class MetricsServiceTests {
 			System.out.println(topNames[i] + ": " + topAmounts[i]);
 		}
 	}
+	
+	@Test
+	void getTop3Customers() {
+		String[] usernames = metServ.getTopCustomerNames();
+		int[] orders = metServ.getTopCustomerOrders();
+		for (int i = 0; i < 3; i++) {
+			System.out.println(usernames[i] + " orders made: " + orders[i]);
+		}
+	}
+	
+	@Test
+	void getAverageAndRevenue() {
+		System.out.println("Total Revenue: " + metServ.getTotalRevenue());
+		System.out.println("Average Cost per Ticket: "  + metServ.getAverageTicketPrice());
+	}
 }

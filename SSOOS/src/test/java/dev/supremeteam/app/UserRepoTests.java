@@ -41,19 +41,10 @@ class UserRepoTests {
 		System.out.println(uRepo.findAll());
 	}
 	
-//	@Test
-//	void getUserById() {
-//		User user = uRepo.findById(700).get();
-//		System.out.println(user);
-//		System.out.println(user.getUserRole());
-//		System.out.println(user.getTickets());
-//	}
 	@Test
 	void getUserByuspw() {
 		User user = uRepo.findByUsernameAndPassword("schaud24", "cpassword");
 		System.out.println(user);
-		//System.out.println(user.getUserRole());
-		//System.out.println(user.getTickets());
 	}
 	
 	@Test
@@ -75,14 +66,12 @@ class UserRepoTests {
 		System.out.println(user);
 	}
 	
-//	@Test
-//	@Commit
-//	void duplicateRegister() {
-//		User user = new User();
-//		user.setUsername("mohammed25");
-//		user.setUserId(0);
-//		user.setPassword("passwordx");
-//		System.out.println(uRepo.save(user));
-//	}
+	@Test
+	void getTopUsers() {
+		List<User> users = uRepo.findTopUsers();
+		for (User u : users) {
+			System.out.println(u.getUsername() + " orders made: " + u.getTickets().size());
+		}
+	}
 
 }

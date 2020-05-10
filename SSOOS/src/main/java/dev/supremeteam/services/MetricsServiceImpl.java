@@ -14,6 +14,7 @@ import dev.supremeteam.entities.Topping;
 import dev.supremeteam.entities.User;
 import dev.supremeteam.repositories.TicketRepository;
 import dev.supremeteam.repositories.ToppingRepository;
+import dev.supremeteam.repositories.UserRepository;
 
 @Component
 @Service
@@ -23,6 +24,8 @@ public class MetricsServiceImpl implements MetricsService{
 	TicketRepository ticketRepo;
 	@Autowired
 	ToppingRepository toppingRepo;
+	@Autowired
+	UserRepository userRepo;
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -46,21 +49,24 @@ public class MetricsServiceImpl implements MetricsService{
 	}
 
 	@Override
-	public Map<User, Integer> getTopCustomers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public int getTotalRevenue() {
-		// TODO Auto-generated method stub
-		return 0;
+		int revenue = 0;
+		List<Ticket> tickets = (List<Ticket>) ticketRepo.findAll();
+		for (Ticket t : tickets)
+			revenue += t.getTotalCost();
+		return revenue;
 	}
 
 	@Override
 	public int getAverageTicketPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		int total = 0;
+		int amount = 0;
+		List<Ticket> tickets = (List<Ticket>) ticketRepo.findAll();
+		for (Ticket t : tickets) {
+			total += t.getTotalCost();
+			amount ++;
+		}
+		return total/amount;
 	}
 
 	@Override
@@ -83,6 +89,26 @@ public class MetricsServiceImpl implements MetricsService{
 			top[i] = toppings.get(i).getPizzas().size();
 		}
 		return top;
+	}
+
+	@Override
+	public String[] getTopCustomerNames() {
+		String[] names = new String[3];
+		List<User> users = userRepo.findTopUsers();
+		for (int i = 0; i < 3; i++) {
+			names[i] = users.get(i).getUsername();
+		}
+		return names;
+	}
+
+	@Override
+	public int[] getTopCustomerOrders() {
+		int[] amounts = new int[3];
+		List<User> users = userRepo.findTopUsers();
+		for (int i = 0; i < 3; i++) {
+			amounts[i] = users.get(i).getTickets().size();
+		}
+		return amounts;
 	}
 
 }

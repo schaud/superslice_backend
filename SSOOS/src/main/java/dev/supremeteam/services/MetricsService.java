@@ -9,11 +9,16 @@ import dev.supremeteam.entities.User;
 public interface MetricsService {
 	
 	int[] getOrdersByTime();
+	
 	Map<String,Integer> getTopToppings();
-	Map<User,Integer> getTopCustomers();
-	int getTotalRevenue();
-	int getAverageTicketPrice();
 	String[] getTopToppingNames();
 	int[] getTopToppingAmounts();
+	
+	int getTotalRevenue();
+	
+	int getAverageTicketPrice();
+	
+	String[] getTopCustomerNames();
+	int[] getTopCustomerOrders();
 
 }
