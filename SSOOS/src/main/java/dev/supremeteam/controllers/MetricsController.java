@@ -43,5 +43,29 @@ public class MetricsController {
 	public int[] getTopToppingAmounts() {
 		return metServ.getTopToppingAmounts();
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="metrics/customer/names", method = RequestMethod.GET)
+	public String[] getTopCustomerNames() {
+		return metServ.getTopCustomerNames();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="metrics/customer/orders", method = RequestMethod.GET)
+	public int[] getTopCustomerOrders() {
+		return metServ.getTopCustomerOrders();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="metrics/earnings/total", method = RequestMethod.GET)
+	public int getTotalRevenue() {
+		return metServ.getTotalRevenue();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="metrics/earnings/average", method = RequestMethod.GET)
+	public int getAverageTicketPrice() {
+		return metServ.getAverageTicketPrice();
+	}
 
 }
