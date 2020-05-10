@@ -13,5 +13,7 @@ public interface MetricsService {
 	Map<User,Integer> getTopCustomers();
 	int getTotalRevenue();
 	int getAverageTicketPrice();
+	String[] getTopToppingNames();
+	int[] getTopToppingAmounts();
 
 }

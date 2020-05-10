@@ -29,4 +29,13 @@ class MetricsServiceTests {
 	void getTop5Toppings() {
 		System.out.println(metServ.getTopToppings());
 	}
+	
+	@Test
+	void getTop5ToppingsAlt() {
+		String[] topNames = metServ.getTopToppingNames();
+		int[] topAmounts = metServ.getTopToppingAmounts();
+		for (int i = 0; i < 5; i++) {
+			System.out.println(topNames[i] + ": " + topAmounts[i]);
+		}
+	}
 }
