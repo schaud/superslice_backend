@@ -1,5 +1,6 @@
 package dev.supremeteam.services;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,12 @@ public class UserServiceimpl implements UserService {
 			User user = new User();
 			return user;
 		}
+	}
+
+	@Override
+	public List<Ticket> getTicketsByUser(String username) {
+		User user = ur.findByUsername(username);
+		return tr.findByUserOrderByTicketId(user);
 	}
 	
 

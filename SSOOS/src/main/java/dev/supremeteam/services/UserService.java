@@ -1,5 +1,7 @@
 package dev.supremeteam.services;
 
+import java.util.List;
+
 import dev.supremeteam.entities.*;
 
 public interface UserService {
@@ -9,5 +11,7 @@ public interface UserService {
 	User registerUser(String username, String password);
 	
 	Ticket createTicket(Ticket t);
+	
+	List<Ticket> getTicketsByUser(String username);
 	
 }
