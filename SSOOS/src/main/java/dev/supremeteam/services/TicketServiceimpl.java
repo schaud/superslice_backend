@@ -43,7 +43,7 @@ public class TicketServiceimpl implements TicketService{
 		
 		ticket.setTotalCost(0);
 		for (PizzaForm pizzaForm:orderForm.getPizzaForms())
-			ticket.setTotalCost(ticket.getTotalCost() + pizzaForm.getCost());
+			ticket.setTotalCost(ticket.getTotalCost() + (pizzaForm.getCost()*pizzaForm.getQuantity()));
 		
 		long millis = System.currentTimeMillis();
 		Date date = new Date(millis);
