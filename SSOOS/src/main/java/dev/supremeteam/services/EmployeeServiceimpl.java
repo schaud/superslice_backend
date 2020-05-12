@@ -37,17 +37,17 @@ public class EmployeeServiceimpl implements EmployeeService {
 
 	@Override
 	public List<Ticket> getPendingTickets() {
-		return tr.findByStatusOrderByPlacementTimeAsc("Pending");
+		return tr.findByStatusOrderByTicketIdDesc("Pending");
 	}
 
 	@Override
 	public List<Ticket> getIncompleteTickets() {
-		return tr.findByStatusNotOrderByPlacementTimeAsc("Complete");
+		return tr.findByStatusNotOrderByTicketIdDesc("Complete");
 	}
 
 	@Override
 	public List<Ticket> getCompleteTickets() {
-		return tr.findByStatusOrderByPlacementTimeAsc("Complete");
+		return tr.findByStatusOrderByTicketIdDesc("Complete");
 	}
 
 	@Override
