@@ -33,7 +33,7 @@ public class MetricsServiceImpl implements MetricsService{
 		int[] orders = new int[24];
 		List<Ticket> tickets = ticketRepo.findAllByOrderByPlacementTimeAsc();
 		for (Ticket ticket : tickets) {
-			orders[ticket.getPlacementTime().getHours() - 1]++;
+			orders[ticket.getPlacementTime().getHours()]++;
 		}
 		return orders;
 	}
