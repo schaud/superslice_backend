@@ -121,7 +121,7 @@ public class Ticket {
 	public void setPlacementDate(Date placementDate) {
 		this.placementDate = placementDate;
 	}
-
+	@JsonIgnoreProperties({"password"})
 	public User getUser() {
 		return user;
 	}

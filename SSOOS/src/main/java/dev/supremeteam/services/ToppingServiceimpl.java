@@ -16,7 +16,7 @@ public class ToppingServiceimpl implements ToppingService{
 	
 	@Override
 	public List<Topping> getSizes() {
-		return tr.findByCostGreaterThan(5);
+		return tr.findByCostGreaterThan(7);
 	}
 
 	@Override
