@@ -26,72 +26,112 @@ public class ApiServiceImpl implements ApiService{
 	
 	@Override
 	public List<Ticket> getAllTickets() {
-		return (List<Ticket>) ticketRepo.findAll();
+		try { return (List<Ticket>) ticketRepo.findAll();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public List<Ticket> getUserTickets(String username) {
-		User user = userRepo.findByUsername(username);
+		try { User user = userRepo.findByUsername(username);
 		return ticketRepo.findByUserOrderByTicketId(user);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public List<Topping> getAllToppings() {
-		return (List<Topping>) toppingRepo.findAll();
+		try { return (List<Topping>) toppingRepo.findAll(); 
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public List<Topping> getToppingsByPopularity() {
-		return toppingRepo.findOrderedToppings();
+		try { return toppingRepo.findOrderedToppings();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public Topping createTopping(Topping topping) {
-		topping.setToppingId(0);
+		try { topping.setToppingId(0);
 		return toppingRepo.save(topping);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public Topping getToppingById(int id) {
-		return toppingRepo.findById(id).get();
+		try { return toppingRepo.findById(id).get();
+		
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public Topping updateTopping(Topping topping) {
-		return toppingRepo.save(topping);
+		try { return toppingRepo.save(topping);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public boolean deleteTopping(Topping topping) {
-		toppingRepo.delete(topping);
-		return true;
+		try { toppingRepo.delete(topping);
+		return true; 
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
 	public Ticket createTicket(Ticket ticket) {
-		ticket.setTicketId(0);
+		try { ticket.setTicketId(0);
 		return ticketRepo.save(ticket);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public Ticket getTicketById(int id) {
-		return ticketRepo.findById(id).get();
+		try { return ticketRepo.findById(id).get();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public Ticket updateTicket(Ticket ticket) {
-		return ticketRepo.save(ticket);
+		try { return ticketRepo.save(ticket);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public boolean deleteTicket(Ticket ticket) {
-		ticketRepo.delete(ticket);
+		try { ticketRepo.delete(ticket);
 		return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
 	public Topping getToppingByName(String name) {
-		return toppingRepo.findByToppingName(name);
+		try { return toppingRepo.findByToppingName(name);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 }
