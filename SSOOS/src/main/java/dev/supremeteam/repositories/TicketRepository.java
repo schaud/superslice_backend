@@ -13,8 +13,8 @@ import dev.supremeteam.entities.User;
 @Repository
 public interface TicketRepository extends CrudRepository<Ticket,Integer>{
 
-	List<Ticket> findByStatusNotOrderByPlacementTimeAsc(String status);
-	List<Ticket> findByStatusOrderByPlacementTimeAsc(String status);
+	List<Ticket> findByStatusNotOrderByTicketIdDesc(String status);
+	List<Ticket> findByStatusOrderByTicketIdDesc(String status);
 	List<Ticket> findAllByOrderByPlacementTimeAsc();
 	List<Ticket> findByUserOrderByTicketId(User user);
 }
